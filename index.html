@@ -61,6 +61,21 @@
     }
     .mincho { font-family: 'Shippori Mincho', serif; }
 
+    /* 日本語の行送りを整える（孤立文字・禁則・不自然な改行を防ぐ） */
+    p, h1, h2, h3, .hero-title, .hero-sub, .mood-tagline, .mood-desc {
+      line-break: strict;
+      word-break: normal;
+      overflow-wrap: break-word;
+      text-wrap: pretty;
+    }
+    h1, h2, h3, .hero-title, .hero-sub, .mood-tagline { text-wrap: balance; }
+    /* 対応ブラウザでは文節単位で自然に改行 */
+    @supports (word-break: auto-phrase) {
+      p, .mood-desc { word-break: auto-phrase; }
+    }
+    /* 手動改行はPC幅のみ。狭い画面では自然な折り返しに任せる */
+    @media (max-width: 760px) { br.brk { display: none; } }
+
     /* 縦書きアクセント */
     .tate { writing-mode: vertical-rl; text-orientation: upright; }
 
@@ -375,13 +390,13 @@
       <div class="eyebrow">序 — prologue</div>
       <div class="ja">
         <h2 class="mincho">満たすより、削ぐ。</h2>
-        <p>侘び寂びは、足りなさの中に美を見出す日本の心です。<br>静けさ、移ろい、不完全さ——そのすべてを、やさしく肯定する。</p>
-        <p>水のように澄んだ <strong>WABI</strong> と、森のように深い <strong>SABI</strong>。<br>ふたつの癒しが、ひとつの静けさへと還っていきます。</p>
+        <p>侘び寂びは、足りなさの中に美を見出す日本の心です。<br class="brk">静けさ、移ろい、不完全さ——そのすべてを、やさしく肯定する。</p>
+        <p>水のように澄んだ <strong>WABI</strong> と、森のように深い <strong>SABI</strong>。<br class="brk">ふたつの癒しが、ひとつの静けさへと還っていきます。</p>
       </div>
       <div class="en">
         <h2 class="mincho">Beauty in less.</h2>
-        <p>Wabi-sabi is the Japanese art of finding beauty in imperfection,<br>in quietness, and in the gentle passing of things.</p>
-        <p><strong>WABI</strong>, clear like water. <strong>SABI</strong>, deep like a forest.<br>Two moods that settle into one calm.</p>
+        <p>Wabi-sabi is the Japanese art of finding beauty in imperfection,<br class="brk">in quietness, and in the gentle passing of things.</p>
+        <p><strong>WABI</strong>, clear like water. <strong>SABI</strong>, deep like a forest.<br class="brk">Two moods that settle into one calm.</p>
       </div>
     </div>
   </section>
@@ -453,11 +468,11 @@
       <div class="eyebrow" style="color:rgba(255,255,255,.7)">結 — join us</div>
       <div class="ja">
         <h2 class="mincho">この静けさを、毎日に。</h2>
-        <p>WABIとSABI、ふたつの癒しを毎日お届けしています。<br>チャンネル登録で、あなたの一日にそっと和を。</p>
+        <p>WABIとSABI、ふたつの癒しを毎日お届けしています。<br class="brk">チャンネル登録で、あなたの一日にそっと和を。</p>
       </div>
       <div class="en">
         <h2 class="mincho">A little calm, every day.</h2>
-        <p>New WABI and SABI lofi, released daily.<br>Subscribe and bring a quiet moment of Japan into your day.</p>
+        <p>New WABI and SABI lofi, released daily.<br class="brk">Subscribe and bring a quiet moment of Japan into your day.</p>
       </div>
       <a class="sub-btn" href="https://www.youtube.com/@ChillxGirl-YT?sub_confirmation=1" target="_blank" rel="noopener">
         <svg width="28" height="20" viewBox="0 0 28 20"><path d="M27.4 3.1A3.5 3.5 0 0 0 24.9.6C22.7 0 14 0 14 0S5.3 0 3.1.6A3.5 3.5 0 0 0 .6 3.1 36.5 36.5 0 0 0 0 10a36.5 36.5 0 0 0 .6 6.9 3.5 3.5 0 0 0 2.5 2.5C5.3 20 14 20 14 20s8.7 0 10.9-.6a3.5 3.5 0 0 0 2.5-2.5A36.5 36.5 0 0 0 28 10a36.5 36.5 0 0 0-.6-6.9zM11.2 14.2V5.8L18.4 10z"/></svg>
